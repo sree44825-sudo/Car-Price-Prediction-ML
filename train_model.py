@@ -13,7 +13,7 @@ import joblib
 df = pd.read_excel(r"C:\Users\sree4\OneDrive\Desktop\Project\vehicle_dataset_20000.xlsx")
 print(df.head())
 
-# ✅ Convert selling_price to LAKHS (only if data is in rupees)
+#  Convert selling_price to LAKHS (only if data is in rupees)
 df["selling_price"] = df["selling_price"] * 1000
 
 # Create age feature
@@ -52,7 +52,7 @@ model.fit(X_train, y_train)
 # Predict
 y_predict = model.predict(X_test)
 
-# ✅ Metrics now in LAKHS
+#  Metrics now in LAKHS
 print("MAE :", mean_absolute_error(y_test, y_predict))
 print("R² Score:", r2_score(y_test, y_predict))
 print("RMSE :", np.sqrt(mean_squared_error(y_test, y_predict)))
