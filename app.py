@@ -4,15 +4,15 @@ import pandas as pd
 import joblib
 import time
 
-# ---------------- PAGE CONFIG ----------------
+# PAGE CONFIG 
 st.set_page_config(page_title="Know Your Car", page_icon="🏎️", layout="wide")
 
-# ---------------- GLOBAL CSS ----------------
+# GLOBAL CSS 
 st.markdown(
     """
 <style>
 
- /* ---------- ANIMATED MOVING GRADIENT BACKGROUND ---------- */
+ /* ANIMATED MOVING GRADIENT BACKGROUND */
 .stApp {
     background: linear-gradient(120deg, #0f172a, #032b3a, #00414d, #032b3a, #0f172a);
     background-size: 500% 500%;
@@ -110,7 +110,7 @@ input, select, textarea {
     unsafe_allow_html=True,
 )
 
-# ---------------- NAVBAR (SVG icons shown, Streamlit buttons used for action) ----------------
+# NAVBAR (SVG icons shown, Streamlit buttons used for action) 
 # We'll render the SVG icons visually using st.markdown, and place Streamlit buttons next to them for interaction.
 nav_cols = st.columns([1, 0.3, 0.3, 0.3])  # spacer + three small columns for buttons
 
@@ -138,7 +138,7 @@ with nav_cols[3]:
 if "page" not in st.session_state:
     st.session_state["page"] = "home"
 
-# ---------------- LOAD MODEL ----------------
+# LOAD MODEL 
 MODEL_PATH = "train_model.pkl"
 
 @st.cache_resource
@@ -151,7 +151,7 @@ except Exception as e:
     st.error("❌ Could not load model. Make sure 'train_model.pkl' exists in the app folder.")
     st.stop()
 
-# ---------------- Page helpers ----------------
+# Page helpers 
 def show_about():
     st.header("About Know Your Car")
     st.write("""
@@ -168,7 +168,7 @@ def show_help():
         - If you see ₹0 or a tiny value, retrain or check categories
     """)
 
-# ---------------- MAIN: HOME PAGE ----------------
+#  MAIN: HOME PAGE 
 if st.session_state["page"] == "home":
     st.title("🚘 Know Your Car — Price Estimator")
     st.write("Enter car details to get an estimated selling price.")
@@ -234,7 +234,7 @@ if st.session_state["page"] == "home":
             unsafe_allow_html=True,
         )
 
-# ---------------- ABOUT / HELP PAGES ----------------
+#  ABOUT / HELP PAGES
 elif st.session_state["page"] == "about":
     show_about()
 elif st.session_state["page"] == "help":
